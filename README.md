@@ -1,4 +1,4 @@
-# Aergias
+# Aergias (WIP)
 The most minimal yet still usable programming language.
 
 ## Syntax

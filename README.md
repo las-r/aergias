@@ -1,68 +1,176 @@
-# Aergias (WIP)
+# Aergias (v1.0)
+
 The most minimal yet still usable programming language.
 
-## Syntax
-### Comments
-Comment lines are denoted with `/`
-```
-/ This is a comment!
-```
-Comments have zero effect on the program whatsoever and can be used for notes or organization.
+Aergias is an expression-oriented language where every operation returns a value. It utilizes Prefix Notation (Polish Notation) to maintain a minimal footprint, eliminating the need for complex operator precedence and grouping parentheses in math.
 
-### Returning Values
-To return a value, simply put the value.
-```
-/ Returns 1.2
-1
+## 1. Syntax
 
-/ Returns "Hello, world!"
-"Hello, world!"
-```
-Note that this does not print anything to the console.
+### 1.1 Comments
 
-### Variables and Values
-Variables are set to returned values with `=`.
+Lines starting with `/` are ignored by the interpreter.
+
+```txt
+/ This is a comment.
 ```
+
+### 1.2 Values and Types
+
+Aergias supports three primary types:
+
+* Integers: `42`, `-7`
+* Floats: `3.14`, `.5`
+* Strings: `"Hello, World!"`
+
+### 1.3 Implicit Evaluation
+
+Simply stating a value or variable evaluates it. In any block, the last evaluated expression acts as the "result."
+
+```txt
+/ Evaluates to 1.2
+1.2
+
+/ Evaluates to "Hello"
+"Hello"
+```
+
+## 2. Variables
+
+Variables are assigned using the `=` prefix operator.
+
+**Syntax:** `= <identifier> <expression>`
+
+```txt
 / Sets variable `num` to 3.2
-=num 3.2
+= num 3.2
 
-/ Sets variable `hello` to "World"
-=hello "World"
-```
-Variables can also be returned.
-```
-/ Based on the codeblock above, this will return "World"
-hello
-```
-Variables names can also be set after the first setting.
-```
-/ Sets variable `x` to 1, then 2
-=x 1
-=x 2
+/ Sets `x` to the result of (5 + 2)
+= x + 5 2
+
+/ Referencing a variable evaluates to its value
+x
 ```
 
-### Output and Input
-Returned values can be outputted to the console with `>`.
-```
-/ Prints "Hello, world!"
->"Hello, world!"
-```
-String values can be inputted from the console with the following per type:
-- `,` String
-- `.` Integer
-- `'` Float
-```
-/ Sets `name` to inputted string
-=name ,
 
-/ Sets `id` to inputted integer
-=id .
 
-/ Sets `userNum` to inputted float
-=userNum '
+## 3. I/O (Input/Output)
+
+### 3.1 Output
+
+The `>` operator prints the evaluated expression to the console.
+
+```txt
+> "Hello, world!"
+> + 10 5  / Prints 15
 ```
-This can be paired with output to make a generic input.
+
+### 3.2 Input
+
+Input operators halt execution and evaluate to the value entered by the user via stdin:
+
+* `,` : Read String
+* `.` : Read Integer
+* `'` : Read Float
+
+```txt
+> "Enter your name:"
+= name ,
+
+> "Enter your age:"
+= age .
 ```
->"How old are you?"
-=age .
+
+## 4. Operations
+
+All operations use prefix notation:
+
+```
+[OPERATOR] [ARG1] [ARG2]
+```
+
+### 4.1 Arithmetic
+
+| Op | Action   | Example  | Result |
+| -- | -- | -- |  |
+| +  | Add      | `+ 5 2`  | 7      |
+| -  | Subtract | `- 10 4` | 6      |
+| *  | Multiply | `* 3 3`  | 9      |
+| /  | Divide   | `/ 10 2` | 5      |
+| ^  | Exponent | `^ 2 3`  | 8      |
+| %  | Modulo   | `% 10 3` | 1      |
+
+### 4.2 Bitwise & Logic
+
+| Op | Action      | Example  |
+| -- | -- | -- |
+| |  | Bitwise OR  | `\| x y` |
+| &  | Bitwise AND | `& x y`  |
+| $  | Bitwise XOR | `$ x y`  |
+| ~  | Bitwise NOT | `~ x`    |
+| !  | Logical NOT | `! x`    |
+
+### 4.3 Comparison
+
+Comparisons return `1` for true and `0` for false.
+
+| Op | Action           | Example   |
+| -- | - |  |
+| == | Equals           | `== x 5`  |
+| << | Less than        | `<< x 10` |
+| >> | Greater than     | `>> x 0`  |
+| <= | Less or equal    | `<= x 5`  |
+| >= | Greater or equal | `>= x 5`  |
+
+
+
+## 5. Control Flow
+
+### 5.1 Conditionals (If/Else)
+
+**Syntax:** `( [condition] [body] )`
+
+An "else" block is defined by opening a second set of parentheses immediately after the first block's closing parenthesis.
+
+```txt
+= val .
+( >> val 10
+    > "Value is greater than 10"
+(
+    > "Value is 10 or less"
+)
+)
+```
+
+### 5.2 Loops (While)
+
+**Syntax:** `[ [condition] [body] ]`
+
+The block repeats as long as the condition evaluates to a non-zero value.
+
+```txt
+= count 0
+[ << count 5
+    > count
+    = count + count 1
+]
+```
+
+## 6. Example Program: Fibonacci Sequence
+
+```txt
+/ Aergias Fibonacci Sequence
+
+> "How many numbers?"
+= limit .
+= n1 0
+= n2 1
+= i 0
+
+[ << i limit
+    > n1
+    = temp + n1 n2
+    = n1 n2
+    = n2 temp
+    = i + i 1
+]
 ```

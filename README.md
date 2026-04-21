@@ -85,7 +85,14 @@ Input operators halt execution and evaluate to the value entered by the user via
 All operations use prefix notation:
 
 ```
-[OPERATOR] [ARG1] [ARG2]
+/ [OPERATOR] [ARG1] [ARG2]
++ 3 2
+```
+
+Operations can be nested:
+
+```
+* 2 + 3 4
 ```
 
 ### 4.1 Arithmetic

@@ -5,7 +5,7 @@
 Just put the /aergia folder in your working directory.
 
 ## Usage
-```bash
+```
 python -m aergia <filename.aer>
 ```
 

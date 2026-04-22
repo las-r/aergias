@@ -91,6 +91,9 @@ class BinaryOpNode:
         elif self.op == "==": 
             if vl == vr: return 1
             else: return 0
+        elif self.op == "!=": 
+            if vl != vr: return 1
+            else: return 0
         elif self.op == "<<":
             if vl < vr: return 1
             else: return 0

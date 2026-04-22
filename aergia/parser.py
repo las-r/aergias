@@ -38,7 +38,7 @@ def parseexpr(tokens):
         return AssignNode(name, value)
     
     # binary ops
-    if token in ("+", "-", "*", "/", "==", ">>", "<<", ">=", "<=", "^", "%", "&", "|", "$"):
+    if token in ("+", "-", "*", "/", "==", "!=", ">>", "<<", ">=", "<=", "^", "%", "&", "|", "$"):
         left = parseexpr(tokens)
         right = parseexpr(tokens)
         return BinaryOpNode(token, left, right)

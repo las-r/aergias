@@ -11,7 +11,7 @@ def preprocess(code):
     lines = code.splitlines()
     cleaned = []
     for line in lines:
-        cleaned.append(line.split('/')[0])
+        cleaned.append(line.split("#")[0])
     return " ".join(cleaned)
 
 # tokenizer

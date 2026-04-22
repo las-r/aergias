@@ -13,7 +13,7 @@ The `>` operator prints the evaluated expression to the console.
 
 ```
 > "Hello, world!"
-> + 10 5  / Prints 15
+> + 10 5  # Prints 15
 ```
 
 ## 3.2 Input

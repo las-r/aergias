@@ -18,9 +18,9 @@ An "else" block is defined by opening a second set of parentheses immediately af
 = val .
 ( >> val 10
     > "Value is greater than 10"
+)
 (
     > "Value is 10 or less"
-)
 )
 ```
 

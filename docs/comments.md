@@ -8,8 +8,8 @@ parent: "Syntax"
 
 # 6. Comments
 
-Lines starting with `/` are ignored by the interpreter.
+Lines starting with `#` are ignored by the interpreter.
 
 ```
-/ This is a comment.
+# This is a comment.
 ```

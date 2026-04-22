@@ -11,7 +11,7 @@ parent: "Syntax"
 All operations use prefix notation:
 
 ```
-/ [OPERATOR] [ARG1] [ARG2]
+# [OPERATOR] [ARG1] [ARG2]
 + 3 2
 ```
 

@@ -29,9 +29,9 @@ Here is an example:
 Simply stating a value or variable evaluates it. In any block, the last evaluated expression acts as the "result."
 
 ```
-/ Evaluates to 1.2
+# Evaluates to 1.2
 1.2
 
-/ Evaluates to "Hello"
+# Evaluates to "Hello"
 "Hello"
 ```

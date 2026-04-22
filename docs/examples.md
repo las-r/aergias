@@ -17,7 +17,7 @@ This section has a few examples of how the Aergia language can be used.
 ## 6. Example Program: Fibonacci Sequence
 
 ```
-/ Aergia Fibonacci Sequence
+# Aergia Fibonacci Sequence
 
 > "How many numbers?"
 = limit .

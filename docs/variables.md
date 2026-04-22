@@ -12,12 +12,12 @@ Variables are assigned using the `=` prefix operator.
 **Syntax:** `= <identifier> <expression>`
 
 ```
-/ Sets variable `num` to 3.2
+# Sets variable `num` to 3.2
 = num 3.2
 
-/ Sets `x` to the result of (5 + 2)
+# Sets `x` to the result of (5 + 2)
 = x + 5 2
 
-/ Referencing a variable evaluates to its value
+# Referencing a variable evaluates to its value
 x
 ```

@@ -11,7 +11,7 @@ parent: "Syntax"
 
 The `>` operator prints the evaluated expression to the console.
 
-```txt
+```
 > "Hello, world!"
 > + 10 5  / Prints 15
 ```
@@ -24,7 +24,7 @@ Input operators halt execution and evaluate to the value entered by the user via
 * `.` : Read Integer
 * `'` : Read Float
 
-```txt
+```
 > "Enter your name:"
 = name ,
 

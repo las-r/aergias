@@ -11,7 +11,7 @@ Variables are assigned using the `=` prefix operator.
 
 **Syntax:** `= <identifier> <expression>`
 
-```txt
+```
 / Sets variable `num` to 3.2
 = num 3.2
 

@@ -28,7 +28,7 @@ Here is an example:
 
 Simply stating a value or variable evaluates it. In any block, the last evaluated expression acts as the "result."
 
-```txt
+```
 / Evaluates to 1.2
 1.2
 

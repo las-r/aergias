@@ -14,7 +14,7 @@ parent: "Syntax"
 
 An "else" block is defined by opening a second set of parentheses immediately after the first block's closing parenthesis.
 
-```txt
+```
 = val .
 ( >> val 10
     > "Value is greater than 10"
@@ -30,7 +30,7 @@ An "else" block is defined by opening a second set of parentheses immediately af
 
 The block repeats as long as the condition evaluates to a non-zero value.
 
-```txt
+```
 = count 0
 [ << count 5
     > count

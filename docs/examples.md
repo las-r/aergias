@@ -10,13 +10,13 @@ parent: "Syntax"
 This section has a few examples of how the Aergia language can be used.
 
 ## Hello World
-```txt
+```
 > "Hello, world!"
 ```
 
 ## 6. Example Program: Fibonacci Sequence
 
-```txt
+```
 / Aergia Fibonacci Sequence
 
 > "How many numbers?"

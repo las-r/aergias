@@ -10,6 +10,6 @@ parent: "Syntax"
 
 Lines starting with `/` are ignored by the interpreter.
 
-```txt
+```
 / This is a comment.
 ```

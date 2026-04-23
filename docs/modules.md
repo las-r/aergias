@@ -22,7 +22,7 @@ You can import modules with `+> "<filename.aer>"`.
 +> "math.aer"
 ```
 
-To import Python modules, use `*> <module>` instead.
+To import Python modules, use `*> <module>` instead. Any classes  will be flattened, with where dots would be there would be underscores (e.g. `KeyboardKey.KEY_SPACE` -> `KeyboardKey_KEY_SPACE`).
 ```
 *> random
 ```

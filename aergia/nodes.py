@@ -219,4 +219,8 @@ class PyImportNode:
         for name, value in vars(module).items():
             if not name.startswith("_"):
                 env[name] = value
+                if isinstance(value, type):
+                    for sname, sval in vars(value).items():
+                        if not sname.startswith("_"):
+                            env[f"{name}_{sname}"] = sval
         return 0

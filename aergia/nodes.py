@@ -1,3 +1,6 @@
+import importlib
+from .lexer import tokenize
+
 # aergia nodes
 # made by las-r on github
 
@@ -162,9 +165,12 @@ class CallNode:
         func = env.get(self.name)
         if not func:
             raise Exception(f"Function {self.name} not defined")
+        eargs = [arg.eval(env) for arg in self.args]
+        if callable(func):
+            return func(*eargs)
         fenv = env.copy() 
-        for name, argnode in zip(func.para, self.args):
-            fenv[name] = argnode.eval(env)
+        for name, val in zip(func.para, eargs):
+            fenv[name] = val
         try:
             for node in func.body:
                 node.eval(fenv)
@@ -178,3 +184,39 @@ class ReturnNode:
         
     def eval(self, env):
         raise ReturnException(self.value.eval(env))
+    
+# import nodes
+class ImportNode:
+    def __init__(self, file):
+        self.file = file
+    
+    def eval(self, env):
+        from .parser import parse
+        file = self.file.eval(env)
+        if "__imports__" not in env:
+            env["__imports__"] = set()
+        if file in env["__imports__"]:
+            return 0
+        env["__imports__"].add(file)
+        with open(file, "r") as f:
+            code = f.read()
+        try:
+            tokens = tokenize(code)
+            ast = parse(tokens)
+            for node in ast:
+                if node:
+                    node.eval(env)
+        except Exception as e:
+            print(f"Aergia Error ({file}): {e}")
+        return 0
+    
+class PyImportNode:
+    def __init__(self, name):
+        self.name = name
+        
+    def eval(self, env):
+        module = importlib.import_module(self.name)
+        for name, value in vars(module).items():
+            if not name.startswith("_"):
+                env[name] = value
+        return 0

@@ -1,20 +1,20 @@
 ---
 layout: default
-title: 8. Examples
-nav_order: 8
+title: 9. Examples
+nav_order: 9
 description: "Aergia syntax examples."
 parent: "Syntax"
 ---
 
-# 8. Examples
+# 9. Examples
 This section has a few examples of how the Aergia language can be used.
 
-## 8.1 Hello World
+## 9.1 Hello World
 ```
 > "Hello, world!"
 ```
 
-## 8.2 Fibonacci Sequence
+## 9.2 Fibonacci Sequence
 
 ```
 > "How many numbers?"
@@ -32,7 +32,7 @@ This section has a few examples of how the Aergia language can be used.
 ]
 ```
 
-## 8.3 Factorial
+## 9.3 Factorial
 ```
 { factorial : n :
     ( <= n 1

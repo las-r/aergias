@@ -12,6 +12,15 @@ parent: "Syntax"
 
 **Syntax:** `( [condition] [body] )`
 
+An "if" block is defined by opening a set of parentheses.
+
+```
+= b .
+( << b 10
+    > "B is less than 10."
+)
+```
+
 An "else" block is defined by opening a second set of parentheses immediately after the first block's closing parenthesis.
 
 ```

@@ -13,7 +13,7 @@ def main():
     filename = sys.argv[1]
     
     # read file
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         code = f.read()
 
     # interpret

@@ -48,6 +48,14 @@ def parseexpr(tokens):
         if tokens: tokens.pop(0)
         return FunctionNode(name, para, body)
     
+    # imports
+    if token == "+>":
+        file = parseexpr(tokens)
+        return ImportNode(file)
+    if token == "*>":
+        name = tokens.pop(0)
+        return PyImportNode(name)
+    
     # assignments
     if token == "=":
         name = tokens.pop(0)

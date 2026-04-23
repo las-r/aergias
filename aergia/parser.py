@@ -54,7 +54,10 @@ def parseexpr(tokens):
         return ImportNode(file)
     if token == "*>":
         name = tokens.pop(0)
-        return PyImportNode(name)
+        return PyImportNode(name, False)
+    if token == "*<":
+        name = tokens.pop(0)
+        return PyImportNode(name, True)
     
     # assignments
     if token == "=":

@@ -22,7 +22,7 @@ class VariableNode:
         self.name = name
     
     def eval(self, env):
-        return env.get(self.name, 0)
+        return env.get(self.name, Exception(f"No variable '{self.name}' found in environment."))
 
 # assignment
 class AssignNode:
@@ -211,16 +211,23 @@ class ImportNode:
         return 0
     
 class PyImportNode:
-    def __init__(self, name):
+    def __init__(self, name, closed):
         self.name = name
+        self.closed = closed
         
     def eval(self, env):
         module = importlib.import_module(self.name)
         for name, value in vars(module).items():
             if not name.startswith("_"):
-                env[name] = value
+                if not self.closed:
+                    env[name] = value
+                else:
+                    env[f"{self.name}_{name}"] = value
                 if isinstance(value, type):
                     for sname, sval in vars(value).items():
                         if not sname.startswith("_"):
-                            env[f"{name}_{sname}"] = sval
+                            if not self.closed:
+                                env[f"{name}_{sname}"] = sval
+                            else:
+                                env[f"{self.name}_{name}_{sname}"] = sval
         return 0

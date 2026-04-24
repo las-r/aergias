@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aergia-lang"
+version = "1.4.0"
+description = "The Aergia programming language"
+authors = [{ name = "las-r" }]
+dependencies = []
+requires-python = ">=3.7"
+
+[project.scripts]
+aergia = "aergia.__main__:main"

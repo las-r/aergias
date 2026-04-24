@@ -1,3 +1,4 @@
+import re
 from .nodes import *
 
 # aergia parser
@@ -97,7 +98,10 @@ def parseexpr(tokens):
         return CallNode(name, args)
     
     # string
-    if token.startswith('"'): return LiteralNode(token.strip('"'))
+    if token.startswith('"'):
+        content = token[1:-1]
+        unescaped = re.sub(r'\\(.)', r'\1', content)
+        return LiteralNode(unescaped)
     
     # number and variable
     try:
